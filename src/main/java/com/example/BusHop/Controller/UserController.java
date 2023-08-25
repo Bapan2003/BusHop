@@ -3,6 +3,7 @@ package com.example.BusHop.Controller;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,12 +39,14 @@ public class UserController {
 	}
 	
 	@GetMapping("/user/login/{id}")
-	public String getpassword(@PathVariable("id")Long id) {
+	public Map<String,String> getpassword(@PathVariable("id")Long id) {
 		@SuppressWarnings("deprecation")
 		User user=us.getById(id);
-		
+		Map<String,String> response = Map.of(
+				"password",user.getUserPassword()
+				);
 		String pass=user.getUserPassword();
-		return pass;
+		return response;
 	}
 	
 	@GetMapping("/admin/user")
