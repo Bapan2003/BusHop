@@ -45,7 +45,7 @@ public class UserController {
 		Map<String,String> response = Map.of(
 				"password",user.getUserPassword()
 				);
-		String pass=user.getUserPassword();
+//		String pass=user.getUserPassword();
 		return response;
 	}
 	

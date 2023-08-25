@@ -17,6 +17,4 @@ public interface reservationRepository extends JpaRepositoryImplementation<Reser
 	
 	@Query(value="SELECT t FROM Reservation t WHERE userId=%?1%",nativeQuery=false)
 	List<Reservation>findHistoryByUserId(Long userId);
-
-
 }

@@ -28,7 +28,7 @@ public class ReservationController {
 			return "Successfully Booked";
 		}
 		
-		return "Already Reserved";
+		return "Already  Reserved";
 		
 	}
 	@GetMapping("/seat/check/{id}/{no}")
