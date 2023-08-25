@@ -40,8 +40,8 @@ public class UserController {
 	
 	@GetMapping("/user/login/{id}")
 	public Map<String,String> getpassword(@PathVariable("id")Long id) {
-		@SuppressWarnings("deprecation")
-		User user=us.getById(id);
+		
+		User user=us.findById(id).orElseThrow();
 		Map<String,String> response = Map.of(
 				"password",user.getUserPassword()
 				);
