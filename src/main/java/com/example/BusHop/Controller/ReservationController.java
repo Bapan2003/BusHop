@@ -37,4 +37,10 @@ public class ReservationController {
 		return cur;
 		
 	}
+	
+	@GetMapping("/seat/history/{userId}")
+	public List<Reservation> getHistory(@PathVariable("userId") Long userId){
+		List<Reservation> cur=rs.findHistoryByUserId(userId);
+		return cur;
+	}
 }

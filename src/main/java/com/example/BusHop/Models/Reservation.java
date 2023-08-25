@@ -22,6 +22,7 @@ public class Reservation {
     private String status;
     private LocalDate date;
     private LocalTime time;
+    private Long userId;
     private String busId;
     private String source;
     private String destination;
@@ -47,7 +48,7 @@ public class Reservation {
 	}
 	
 	public Reservation(Integer reservationID, String status, LocalDate date, LocalTime time, String busId,
-			String source, String destination, LocalDate journeyDate, Integer bookedSeat, Integer fare) {
+			String source, String destination, LocalDate journeyDate, Integer bookedSeat, Integer fare,Long userId) {
 		super();
 		this.reservationID = reservationID;
 		this.status = status;
@@ -59,6 +60,7 @@ public class Reservation {
 		this.journeyDate = journeyDate;
 		this.bookedSeat = bookedSeat;
 		this.fare = fare;
+		this.userId=userId;
 	}
 	public Integer getReservationID() {
 		return reservationID;
@@ -120,6 +122,13 @@ public class Reservation {
 	public void setBusId(String busId) {
 		this.busId = busId;
 	}
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	
     
     
 
