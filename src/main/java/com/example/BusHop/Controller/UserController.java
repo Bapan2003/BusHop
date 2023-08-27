@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.BusHop.Exception.ResourceNotFound;
 import com.example.BusHop.Models.Bus;
 import com.example.BusHop.Models.User;
 import com.example.BusHop.Repository.userRepositoryInterface;
@@ -41,7 +42,7 @@ public class UserController {
 	@GetMapping("/user/{id}")
 	public Map<String,String> getpassword(@PathVariable("id")Long id) {
 		
-		User user=us.findById(id).orElseThrow();
+		User user=us.findById(id).orElseThrow(()->new ResourceNotFound("User","id",id));
 		Map<String,String> response = Map.of(
 				"password",user.getUserPassword()
 				);
