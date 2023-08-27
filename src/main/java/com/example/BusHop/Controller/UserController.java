@@ -38,7 +38,7 @@ public class UserController {
 		return us.save(setUser);
 	}
 	
-	@GetMapping("/user/login/{id}")
+	@GetMapping("/user/{id}")
 	public Map<String,String> getpassword(@PathVariable("id")Long id) {
 		
 		User user=us.findById(id).orElseThrow();
