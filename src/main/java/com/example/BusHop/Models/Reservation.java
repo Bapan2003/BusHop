@@ -20,21 +20,21 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer reservationID;
     private String status;
-    private LocalDate date;
-    private LocalTime time;
+    private String date;
+    private String time;
     private Long userId;
     private String busId;
     private String source;
     private String destination;
-    private LocalDate journeyDate;
+    private String journeyDate;
     private Integer bookedSeat;
     private Integer fare;
 	public Reservation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Reservation(Integer reservationID, String status, LocalDate date, LocalTime time, String source,
-			String destination, LocalDate journeyDate, Integer bookedSeat, Integer fare) {
+	public Reservation(Integer reservationID, String status, String date, String time, String source,
+			String destination, String journeyDate, Integer bookedSeat, Integer fare) {
 		super();
 		this.reservationID = reservationID;
 		this.status = status;
@@ -47,8 +47,8 @@ public class Reservation {
 		this.fare = fare;
 	}
 	
-	public Reservation(Integer reservationID, String status, LocalDate date, LocalTime time, String busId,
-			String source, String destination, LocalDate journeyDate, Integer bookedSeat, Integer fare,Long userId) {
+	public Reservation(Integer reservationID, String status, String date, String time, String busId,
+			String source, String destination, String journeyDate, Integer bookedSeat, Integer fare,Long userId) {
 		super();
 		this.reservationID = reservationID;
 		this.status = status;
@@ -74,16 +74,16 @@ public class Reservation {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public LocalTime getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(LocalTime time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	public String getSource() {
@@ -98,10 +98,10 @@ public class Reservation {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
-	public LocalDate getJourneyDate() {
+	public String getJourneyDate() {
 		return journeyDate;
 	}
-	public void setJourneyDate(LocalDate journeyDate) {
+	public void setJourneyDate(String journeyDate) {
 		this.journeyDate = journeyDate;
 	}
 	public Integer getBookedSeat() {
