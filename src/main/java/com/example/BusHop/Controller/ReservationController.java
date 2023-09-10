@@ -31,12 +31,19 @@ public class ReservationController {
 		return "Already  Reserved";
 		
 	}
+	@GetMapping("/seat/bus/{busId}")
+	public List<Reservation> checkSeatByBusId(@PathVariable("busId")String busId){
+		List<Reservation> cur=rs.findSeatByBusId(busId);
+		return cur;
+	}
 	@GetMapping("/seat/check/{id}/{no}")
 	public List<Reservation> checkBookedOrNot(@PathVariable("id")String id, @PathVariable("no")int no) {
 		List<Reservation> cur=rs.findByIdAndSeat(id, no);
 		return cur;
 		
 	}
+	
+	
 	
 	@GetMapping("/seat/history/{userId}")
 	public List<Reservation> getHistory(@PathVariable("userId") Long userId){
