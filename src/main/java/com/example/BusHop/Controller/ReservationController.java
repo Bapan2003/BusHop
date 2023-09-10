@@ -44,7 +44,7 @@ public class ReservationController {
 	}
 	@GetMapping("/seat/{busId}/{date}")
 	public List<Reservation> getBusByBusIdandDate(@PathVariable("busId")String busId, @PathVariable("date")String date) {
-		List<Reservation> cur=rs.findBusByBusIdandDate(busId, date);
+		List<Reservation> cur=rs.findBusByBusIdAndDate(busId, date);
 		return cur;
 		
 	}
