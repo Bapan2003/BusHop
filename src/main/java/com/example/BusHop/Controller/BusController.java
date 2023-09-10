@@ -50,9 +50,9 @@ public class BusController {
         return results;
     }
 	
-	@GetMapping("/bus/{id}/{date}")
-	public List<Bus> getBuses(@PathVariable("id")String id,@PathVariable("date")String date){
-		List<Bus> res=bs.findByDateAndBusId(id, date);
+	@GetMapping("/bus/{srcdst}/{date}")
+	public List<Bus> getBuses(@PathVariable("srcdst")String srcdst,@PathVariable("date")String date){
+		List<Bus> res=bs.findByDateAndBusId(srcdst, date);
 		return res;
 	}
 	

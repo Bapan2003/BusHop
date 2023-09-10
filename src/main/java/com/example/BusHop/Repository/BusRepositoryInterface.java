@@ -16,7 +16,7 @@ public interface BusRepositoryInterface extends JpaRepositoryImplementation<Bus,
 	@Query("select t from Bus t where srcdst like %?1%")
 	List<Bus> findBySrcDst(String srcdst);
 	
-	@Query(value="SELECT t FROM Bus t WHERE busId=%?1% AND deptDate=%?2%" ,nativeQuery=false)
+	@Query(value="SELECT t FROM Bus t WHERE srcdst like%?1% AND deptDate=%?2%" ,nativeQuery=false)
 	List<Bus> findByDateAndBusId(String busId,String deptDate);
 	
 }
