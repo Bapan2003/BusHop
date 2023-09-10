@@ -50,6 +50,11 @@ public class UserController {
 		return response;
 	}
 	
+	
+	@GetMapping("/user/profile/{id}")
+	public User getUserById(@PathVariable("id")Long id){
+		return us.findById(id).orElseThrow();
+	}
 	@GetMapping("/admin/user")
 	public List<User> getAllUser(){
 		return us.findAll();

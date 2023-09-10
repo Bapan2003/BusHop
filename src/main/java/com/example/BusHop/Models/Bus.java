@@ -20,6 +20,7 @@ public class Bus {
 	private String distance;
 	private String srcdst;
 	private String departTime;
+	private String deptDate;
 	private String arrivalTime;
 	private String fare;
 	private String totalSeats;
@@ -31,6 +32,23 @@ public class Bus {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Bus(String busId, String busName, String source, String destination, String distance, String srcdst,
+		String departTime, String deptDate, String arrivalTime, String fare, String totalSeats) {
+	super();
+	this.busId = busId;
+	this.busName = busName;
+	this.source = source;
+	this.destination = destination;
+	this.distance = distance;
+	this.srcdst = srcdst;
+	this.departTime = departTime;
+	this.deptDate = deptDate;
+	this.arrivalTime = arrivalTime;
+	this.fare = fare;
+	this.totalSeats = totalSeats;
+}
+
 	public Bus(String busId, String busName, String source, String destination, String distance, String departTime,
 			String arrivalTime, String fare,String totalSeats) {
 		super();
@@ -141,6 +159,14 @@ public class Bus {
 	}
 	public void setSrcdst(String srcdst) {
 		this.srcdst = srcdst;
+	}
+
+	public String getDeptDate() {
+		return deptDate;
+	}
+
+	public void setDeptDate(String deptDate) {
+		this.deptDate = deptDate;
 	}
 	
 	
