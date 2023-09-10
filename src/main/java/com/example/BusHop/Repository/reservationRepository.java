@@ -20,4 +20,7 @@ public interface reservationRepository extends JpaRepositoryImplementation<Reser
 	
 	@Query(value="SELECT t FROM Reservation t WHERE busId=%?1%",nativeQuery=false)
 	List<Reservation>findSeatByBusId(String busId);
+	
+	@Query(value="SELECT t FROM Reservation t WHERE busId=%?1% AND journeyDate=%?2%",nativeQuery=false)
+	List<Reservation>findBusByBusIdandDate(String busId,String date);
 }
