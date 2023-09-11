@@ -12,7 +12,7 @@ import com.example.BusHop.Models.Reservation;
 
 public interface reservationRepository extends JpaRepositoryImplementation<Reservation,String> {
 
-	@Query("SELECT t from Reservation t WHERE busId=%?1% AND bookedSeat=%?2% AND journeyDate=%?3%")
+	@Query(value="SELECT t from Reservation t WHERE busId=%?1% AND bookedSeat=%?2% AND journeyDate=%?3%",nativeQuery=false)
 	List<Reservation> findByIdAndSeat(String busId,int no,String date);
 	
 	@Query(value="SELECT t FROM Reservation t WHERE userId=%?1%",nativeQuery=false)
