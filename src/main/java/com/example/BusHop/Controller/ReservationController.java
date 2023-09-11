@@ -22,7 +22,8 @@ public class ReservationController {
 	 public String newReservation(@RequestBody Reservation reservation) {
 		String id=reservation.getBusId();
 		int no=reservation.getBookedSeat();
-		List<Reservation> cur=rs.findByIdAndSeat(id, no);
+		String date=reservation.getJourneyDate();
+		List<Reservation> cur=rs.findByIdAndSeat(id, no,date);
 		if(cur.size()==0) {
 			rs.save(reservation);
 			return "Successfully Booked";
@@ -36,9 +37,9 @@ public class ReservationController {
 		List<Reservation> cur=rs.findSeatByBusId(busId);
 		return cur;
 	}
-	@GetMapping("/seat/check/{id}/{no}")
-	public List<Reservation> checkBookedOrNot(@PathVariable("id")String id, @PathVariable("no")int no) {
-		List<Reservation> cur=rs.findByIdAndSeat(id, no);
+	@GetMapping("/seat/check/{id}/{no}/{date}")
+	public List<Reservation> checkBookedOrNot(@PathVariable("id")String id, @PathVariable("no")int no,@PathVariable("date") String date) {
+		List<Reservation> cur=rs.findByIdAndSeat(id, no,date);
 		return cur;
 		
 	}
