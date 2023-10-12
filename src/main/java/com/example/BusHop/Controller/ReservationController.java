@@ -19,17 +19,17 @@ public class ReservationController {
 	@Autowired
 	private reservationRepository rs;
 	@PostMapping("/seat/book")
-	 public String newReservation(@RequestBody Reservation reservation) {
+	 public Reservation newReservation(@RequestBody Reservation reservation) {
 		String id=reservation.getBusId();
 		int no=reservation.getBookedSeat();
 		String date=reservation.getJourneyDate();
 		List<Reservation> cur=rs.findByIdAndSeat(id, no,date);
 		if(cur.size()==0) {
-			rs.save(reservation);
-			return "Successfully Booked";
+			return rs.save(reservation);
+			
 		}
 		
-		return "Already  Reserved";
+		return new Reservation();
 		
 	}
 	@GetMapping("/seat/bus/{busId}")
